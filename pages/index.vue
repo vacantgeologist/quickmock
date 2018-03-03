@@ -58,6 +58,7 @@ $screen_height: 506px;
     width: $screen_width;
     height: $screen_height;
     background-color: #eee;
+    padding: 8px;
   }
 }
 </style>

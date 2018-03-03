@@ -14,6 +14,10 @@ module.exports = {
     ]
   },
   /*
+  ** Global CSS
+  */
+  css: ['font-awesome/css/font-awesome.css'],
+  /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
@@ -33,6 +37,9 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+    },
+    extend(config) {
+      config.resolve.alias['vue'] = 'vue/dist/vue.common'
     }
   }
 }
