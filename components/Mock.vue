@@ -47,11 +47,16 @@ export default {
   },
   components: {
     'v-a': {
+        data: function() {
+          return {
+            lac: 'grow'
+          }
+        },
         template: '<div class="productArea__addToCartButton" v-on:click="$emit(\'nextview\')">購入する</div>',
     },
     'v-b': OrderAmount,
     'v-c': {
-      template: '<h1>バスケットに追加しました</h1>',
+      template: '<div class="productArea__addToCartSuccessPanel"><span class="productArea__addToCartSuccessIcon"><i class="fa fa-check-circle"></i></span>バスケットに追加しました</div>',
     },
   },
   methods: {
@@ -74,16 +79,17 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $grey: #aaa;
 $light_grey: #dfdfdf;
 
 @keyframes grow {
-  100% { height: 104px; opacity: 0; background-color: #eee; }
+  50% { height: 104px; margin-top: 0; }
+  100% { height: 48px; margin-top: 56px; }
 }
 
 .grow {
-  animation: grow .3s ease;
+  animation: grow .2s ease;
 }
 .shrink {
   background-color: green;
@@ -127,6 +133,24 @@ $light_grey: #dfdfdf;
     font-weight: bold;
     border-radius: 3px;
     filter: drop-shadow(2px 2px 2px #aaa);
+  }
+  &__addToCartSuccessPanel {
+    display: inline-flex;
+    margin-bottom: 8px;
+    align-items: center;
+    justify-content: center;
+    background-color: #6cdd92;
+    height: 104px;
+    width: 100%;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 3px;
+  }
+  &__addToCartSuccessIcon {
+    color: white;
+    font-size: 32px;
+    margin-right: 16px;
   }
 }
 
